@@ -16,8 +16,8 @@ hdfs_top500Path = hdfs_userDir + "/top500"
 loaded_neighborhoodTrackUri_tracks = spark.read.parquet(hdfs_trackPath)
 loaded_name_tracks = spark.read.parquet(hdfs_namePath).select("pid","track_uri",(col("weight")/4).alias("weight"))
 loaded_top500_tracks = spark.read.parquet(hdfs_top500Path).select("pid","track_uri",(col("weight")/500).alias("weight")) # Check maybe want to reduce weight of this ones :) 
-loaded_album_tracks = spark.read.parquet(hdfs_albumWeights)
-loaded_artist_tracks = spark.read.parquet(hdfs_artistWeights)
+#loaded_album_tracks = spark.read.parquet(hdfs_albumWeights)
+#loaded_artist_tracks = spark.read.parquet(hdfs_artistWeights)
 
 loaded_final_tracks = loaded_neighborhoodTrackUri_tracks.union(loaded_name_tracks).union(loaded_top500_tracks).groupBy("pid","track_uri").sum("weight").select("pid", "track_uri", col("sum(weight)").alias("weight"))
 
