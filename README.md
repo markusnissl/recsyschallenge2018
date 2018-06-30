@@ -27,6 +27,7 @@ For a more detailed explenation how my code works, I have created a image, which
 * Spark 2.2 required (http://spark.apache.org/)
 * nltk.stem package required (http://www.nltk.org/api/nltk.stem.html)
 * Change the folder names to match your file system in code
+* Use the Pysparkshell for the code snippets
 * Run track_factor.py - Calculates how much information a track provides
 * Run track_neighborhood.py - Calculates the neighborhood of the seed tracks for each challenge playlist
 * Run names.py - Calculate similar playlists based on the playlist name
